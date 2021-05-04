@@ -1,0 +1,89 @@
+﻿body {
+	margin: 0px;
+	background-color:#ECECEC;
+}
+
+h1 {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 300%;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow: 6px 7px 4px rgba(0, 0, 0, 0.25);
+	margin-bottom: 0;
+}
+
+h2 {
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100%;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow: 6px 7px 4px rgba(0, 0, 0, 0.25);
+	margin-top: 1%;
+	margin-bottom: 5%;
+}
+header {
+	background-color: #211C22;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding:0;
+	margin:0;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+
+#stepsContainer {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.step {
+	margin: 4%;
+	display: flex;
+	background: #30445F;
+	border-radius: 20px;
+	font-family: Roboto;
+	font-style: normal;
+	font-weight: normal;
+	align-items: center;
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow: 6px 7px 4px rgba(0, 0, 0, 0.25);
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+	.step .number {
+		font-size: 300%;
+		font-weight: bold;
+	}
+
+	.step .indice {
+		border-right: 2px solid #FFFFFF;
+		border-left: 2px solid #FFFFFF;
+	}
+
+	.step div {
+		padding-right: 5%;
+		padding-left: 5%;
+		padding-top: 2%;
+		padding-bottom: 2%;
+	}
+
+input {
+	margin-top:5%;
+}
+
+.goodAnswer {
+	color:#b6ff00;
+	font-weight:bold;
+}
