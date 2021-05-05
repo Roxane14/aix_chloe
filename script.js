@@ -47,11 +47,11 @@ document.addEventListener('keydown', logKey);
 
 function logKey(e) {
 	if (e.code == "Space") {
-		localStorage.setItem("myStoredIndex", 0);
+		sessionStorage.setItem("myStoredIndex", 0);
 	}
 }
 
-var index = localStorage.getItem("myStoredIndex");
+var index = sessionStorage.getItem("myStoredIndex");
 
 if(index==null)
 	index = 0;
@@ -120,7 +120,7 @@ function myFunction(val) {
 	val = val.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 	if (val == steps[index].answer) {
 		index++;
-		localStorage.setItem("myStoredIndex", index);
+		sessionStorage.setItem("myStoredIndex", index);
 		displayGoodAnswer(index - 1);
 		displayStep(index);
 	}
