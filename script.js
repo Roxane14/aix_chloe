@@ -13,9 +13,22 @@ var thirdStep = new Step(" 3 ceci est l'endroit o\371 il faut aller !", "pas de 
 
 var steps = [firstStep, secondStep, thirdStep];
 
-var index = 0;
 
-displayStep(0);
+//localStorage.setItem("myStoredIndex", 0);
+
+var index = localStorage.getItem("myStoredIndex");
+
+if(index==null)
+	index = 0;
+
+var i;
+for (i = 0; i < parseInt(index); i++) {
+	displayStep(i);
+	displayGoodAnswer(i);
+}
+
+displayStep(parseInt(index));
+
 
 function displayStep(i) {
 	var newStep = document.createElement("div");
@@ -71,6 +84,7 @@ function myFunction(val) {
 	
 	if (val == steps[index].answer) {
 		index++;
+		localStorage.setItem("myStoredIndex", index);
 		displayGoodAnswer(index - 1);
 		displayStep(index);
 	}
