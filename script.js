@@ -51,7 +51,8 @@ function logKey(e) {
 	}
 }
 
-var index = sessionStorage.getItem("myStoredIndex");
+//var index = sessionStorage.getItem("myStoredIndex");
+index = 0;
 
 if(index==null)
 	index = 0;
