@@ -9,12 +9,23 @@ class Step {
 
 var firstStep = new Step("ceci est l'endroit o\371 il faut aller !", "quelle est la r\351ponse \340 la question ?", "reponse");
 var secondStep = new Step(" 2 ceci est l'endroit o\371 il faut aller !", " 2 quelle est la r\351ponse \340 la question ?", "reponse2");
-var thirdStep = new Step(" 3 ceci est l'endroit o\371 il faut aller !", "pas de question ici, car c'est la derni\350re \351tape !", "");
+var thirdStep = new Step(" 3 ceci est l'endroit o\371 il faut aller !", "pas de question ici, car c'est la derni\350re \351tape !", "a");
+var f4Step = new Step("ceci est l'endroit o\371 il faut aller !", "quelle est la r\351ponse \340 la question ?", "reponse");
+var f5Step = new Step(" 2 ceci est l'endroit o\371 il faut aller !", " 2 quelle est la r\351ponse \340 la question ?", "reponse2");
+var s6Step = new Step(" 3 ceci est l'endroit o\371 il faut aller !", "pas de question ici, car c'est la derni\350re \351tape !", "");
 
-var steps = [firstStep, secondStep, thirdStep];
+var steps = [firstStep, secondStep, thirdStep, f4Step, f5Step, s6Step];
 
 
-//localStorage.setItem("myStoredIndex", 0);
+document.addEventListener('keydown', logKey);
+
+function logKey(e) {
+	if (e.code == "Space") {
+		localStorage.setItem("myStoredIndex", 0);
+	}
+}
+
+
 
 var index = localStorage.getItem("myStoredIndex");
 
@@ -53,7 +64,7 @@ function displayStep(i) {
 	var newQuestionText = document.createTextNode(steps[i].question);
 	newQuestion.appendChild(newQuestionText);
 
-	if (index < steps.length-1) {
+	if (i < steps.length-1) {
 		var newQuestionInput = document.createElement("input");
 		newQuestionInput.type = "text";
 		newQuestionInput.name = "txt";
@@ -76,8 +87,8 @@ function displayGoodAnswer(index) {
 	goodAnswer.className = "goodAnswer";
 	goodAnswer.appendChild(answerText);
 	elementToDelete.parentNode.appendChild(goodAnswer);
-
 	elementToDelete.remove();
+	
 }
 
 function myFunction(val) {
