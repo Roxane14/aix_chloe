@@ -1,20 +1,46 @@
 // JavaScript source code
+
+const steps = [];
+
 class Step {
 	constructor(clue, question, answer) {
 		this.clue = clue;
 		this.question = question;
 		this.answer = answer;
+		steps.push(this);
 	}
 }
 
-var firstStep = new Step("ceci est l'endroit o\371 il faut aller !", "quelle est la r\351ponse \340 la question ?", "reponse");
-var secondStep = new Step(" 2 ceci est l'endroit o\371 il faut aller !", " 2 quelle est la r\351ponse \340 la question ?", "reponse2");
-var thirdStep = new Step(" 3 ceci est l'endroit o\371 il faut aller !", "pas de question ici, car c'est la derni\350re \351tape !", "a");
-var f4Step = new Step("ceci est l'endroit o\371 il faut aller !", "quelle est la r\351ponse \340 la question ?", "reponse");
-var f5Step = new Step(" 2 ceci est l'endroit o\371 il faut aller !", " 2 quelle est la r\351ponse \340 la question ?", "reponse2");
-var s6Step = new Step(" 3 ceci est l'endroit o\371 il faut aller !", "pas de question ici, car c'est la derni\350re \351tape !", "");
 
-var steps = [firstStep, secondStep, thirdStep, f4Step, f5Step, s6Step];
+new Step(
+	"Cette charmante enfant est sans doute sous la douche. Cours la rejoindre !",
+	"Quel est le numero correspondant ?",
+	"quatre");
+
+new Step(
+	"Ou peut-etre a-t-elle voulu rechauffer un bon petit plat, car elle avait faim !",
+	"Quel est le numero correspondant ?",
+	"deux");
+
+new Step(
+	"Ce n'est toujours pas ca... Peut-etre qu'elle s'est assise confortablement dans son canape ?",
+	"Quel est le numero correspondant ?",
+	"sept");
+
+new Step(
+	"Alors c'est surement qu'elle est en train de travailler sur son ordinateur !",
+	"Quel est le numero correspondant ?",
+	"huit");
+
+new Step(
+	"Ou alors, elle est allee fermer a clef la porte d'entree...",
+	"Quel est le numero correspondant ?",
+	"trois");
+
+new Step(
+	"Mais non voyons, c'est evident ! Elle est allee se blottir sous les draps et attend son prince charmant.",
+	"Pour lui prouver que tu as bien ete jusqu'au bout, dis-lui le mot magique : brouette",
+	"");
 
 
 document.addEventListener('keydown', logKey);
@@ -24,8 +50,6 @@ function logKey(e) {
 		localStorage.setItem("myStoredIndex", 0);
 	}
 }
-
-
 
 var index = localStorage.getItem("myStoredIndex");
 
@@ -92,7 +116,8 @@ function displayGoodAnswer(index) {
 }
 
 function myFunction(val) {
-	
+	val = val.toLowerCase();
+	val = val.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 	if (val == steps[index].answer) {
 		index++;
 		localStorage.setItem("myStoredIndex", index);
