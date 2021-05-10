@@ -28,9 +28,7 @@ new Step(
 	"enfant");
 
 new Step(
-	"Mon premier est \351gal au nombre de petits cochons\
-	Mon second est plus pr\351cieux que l’argent\
-	Mon troisi\350me constitue les phrases",
+	"Mon premier est \351gal au nombre de petits cochons. Mon second est plus pr\351cieux que l'argent. Mon troisi\350me constitue les phrases",
 	"En quelle ann\351e un homme fut-il pendu en ces lieux ?",
 	"1524");
 
@@ -55,7 +53,7 @@ new Step(
 	"muscat");
 
 new Step(
-	"Si l’on veut aller se baigner, hors de question d'avoir de l'eau froide n'est-ce pas ?",
+	"Si l'on veut aller se baigner, hors de question d'avoir de l'eau froide n'est-ce pas ?",
 	"Des gens ivres ont d\351truit un animal ici. Lequel ?",
 	"triton");
 
@@ -82,8 +80,8 @@ new Step(
 	"paris");
 
 new Step(
-	"Il faut \340 pr\351sent se diriger vers l'h\364tel le plus proche du cin\351ma «Le Renoir»",
-	"Quelle ville italienne sera bient\364t à l'honneur en ces lieux ?",
+	"Il faut \340 pr\351sent se diriger vers l'h\364tel le plus proche du cin\351ma Le Renoir",
+	"Quelle ville italienne sera bient\364t \340 l'honneur en ces lieux ?",
 	"venise");
 
 new Step(
@@ -92,14 +90,14 @@ new Step(
 	"mazarino");
 
 new Step(
-	"Un petit pays europ\351en insulaire au large de l’Italie sera le point final de cette qu\352te",
+	"Un petit pays europ\351en insulaire au large de l'Italie sera le point final de cette qu\352te",
 	"Quelle est la couleur pr\351dominante des portes par ici ?",
 	"rouge");
 
 new Step(
-	"F\351licitations, vous avez atteint la derni\350re étape !",
+	"F\351licitations, vous avez atteint la derni\350re \351tape !",
 	"Vous pouvez \340 pr\351sent rentrer chez vous avec le code suivant : 462",
-	"");
+	"null");
 
 
 document.addEventListener('keydown', logKey);
@@ -110,8 +108,9 @@ function logKey(e) {
 	}
 }
 
-//var index = sessionStorage.getItem("myStoredIndex");
-index = 0;
+//sessionStorage.setItem("myStoredIndex", "0");
+var index = sessionStorage.getItem("myStoredIndex");
+//index = 0;
 
 if(index==null)
 	index = 0;
@@ -187,6 +186,7 @@ function myFunction(val) {
 }
 
 function checkAnswer(val, answer) {
+
 	const words = answer.split('|');
 	for (i in words) {
 		if (!val.includes(words[i]))
